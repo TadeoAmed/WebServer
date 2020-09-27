@@ -17,9 +17,16 @@ T&E SOLUTIONS.
 	PUT propiedad:  deptosapi/propiedades/1
 	POST porpiedad: deptosapi/propiedades
 	DELETE propiedad: deptosapi/propiedades/1
+	GET propiedades: deptosapi/propiedades
 	----------------------------------------
-	GET usuarios: deptosapi/usuarios/1
-	PUT usuarios: deptosapi/usuarios/1
-	POST usuarios: deptosapi/usuarios
-	DELETE usuarios: deptosapi/usuarios/1
-
+	GET usuario: deptosapi/usuarios/1
+	PUT usuario: deptosapi/usuarios/1
+	POST usuario: deptosapi/usuarios
+	DELETE usuario: deptosapi/usuarios/1
+	GET usuarios: deptosapi/usuarios
+	-----------------------------------------
+	GET visita: deptosapi/visita/1
+	PUT visita: deptosapi/visitas/1
+	POST visita: deptosapi/visitas
+	DELETE visita: deptosapi/visitas/1
+	GET visitas: deptosapi/visitas
