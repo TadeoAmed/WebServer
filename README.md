@@ -13,11 +13,13 @@ T&E SOLUTIONS.
 	CRUD de visitas
 	--------------
 ## EndPoints	
-	GET propiedad GET deptosapi/propiedades/1
-	PUT propiedad GET deptosapi/propiedades/1
-	POST porpiedad deptosapi/propiedades
-	DELETE propiedad deptosapi/propiedades/1
-	GET propiedades deptosapi/propiedades
+	GET propiedad:  deptosapi/propiedades/1
+	PUT propiedad:  deptosapi/propiedades/1
+	POST porpiedad: deptosapi/propiedades
+	DELETE propiedad: deptosapi/propiedades/1
 	----------------------------------------
-	
+	GET usuarios: deptosapi/usuarios/1
+	PUT usuarios: deptosapi/usuarios/1
+	POST usuarios: deptosapi/usuarios
+	DELETE usuarios: deptosapi/usuarios/1
 
