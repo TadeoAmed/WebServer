@@ -20,4 +20,4 @@ T&E SOLUTIONS.
 	GET propiedades deptosapi/propiedades
 	----------------------------------------
 	
-	
+
