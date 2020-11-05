@@ -1,0 +1,30 @@
+{
+  "name": "trabajopractico",
+  "version": "1.0.0",
+  "description": "servidor de trabajo practico. eitan y tadeo",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://eitanflores96@bitbucket.org/eitanflores96/arqwebtadeoeitan.git"
+  },
+  "keywords": [
+    "servidor",
+    "web",
+    "mongo"
+  ],
+  "author": "eitan tadeo",
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/eitanflores96/arqwebtadeoeitan#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "connect": "^3.7.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.11"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  }
+}
