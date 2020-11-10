@@ -10,11 +10,14 @@ require('./propiedadesApi.js')(app)
 var mongoose = require('mongoose')
 var db = mongoose.connection
 
+
+app.set('port', process.env.PORT || 4000); //  defino una variable port. Nuestra aplicacion va a definir un puerto, tomará el puerto del sistema operativo con "process.env.PORT" y en caso de no existir pondrá el puerto 4000
+
 db.on('error',console.error.bind(console,'connection error:'))
 db.on('open', function(){
     console.log('BD CONNECTED')
     app.listen(app.get('port'), function() {
-        console.log('Servidor propiedadesApi iniciado.');
+        console.log(`Servidor propiedadesApi iniciado en el puerto ${app.get('port')}`); //  el ${app.get('port')} dentro del console.log nos va a indicar el puerto que se esté escuchando que haya tomado la variable port
     });
 })
 
