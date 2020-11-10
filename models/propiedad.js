@@ -12,10 +12,10 @@ const propiedadSchema = Schema({
                                  banos: Number,
                                  barrio: String,
                                  precio: String,
-                                 garage: Boolean,
-                                 balcon: Boolean,
-                                 terraza: Boolean, 
-                                 pileta: Boolean
+                                 garage: String,
+                                 balcon: String,
+                                 terraza: String, 
+                                 pileta: String
                              }, { versionKey: false })
 
 var collectionName='Propiedad'
