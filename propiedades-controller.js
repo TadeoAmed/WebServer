@@ -1,6 +1,6 @@
 const Propiedad = require('./models/propiedad')
 
-    nuevaPropiedad = function(req,res){
+exports.add = function(req,res){
         const propiedad = new Propiedad();
         propiedad.direccion = req.body.direccion
         propiedad.tipo = req.body.tipo
@@ -20,7 +20,7 @@ const Propiedad = require('./models/propiedad')
             res.status(200).send({propiedad: propRegistered}) })
     }
 
-    exports.add = nuevaPropiedad;
+    
 
     exports.list = function(req, res){
     

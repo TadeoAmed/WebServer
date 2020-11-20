@@ -1,5 +1,5 @@
 let router = require('express').Router();
-var propiedadesController = require('./propiedadesApi');
+var propiedadesController = require('./propiedades-controller');
 
 router.route('/propiedades')
     .get(propiedadesController.list)
