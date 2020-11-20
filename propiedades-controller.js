@@ -29,19 +29,19 @@ exports.add = function(req,res){
             res.json(doc);
         })
         .catch(err =>{
-            console.log('error al consultar');
+            res.status(500).send(`Error al listar propiedades: ${err}`)
         })
     
 };
     
 exports.listOne = function(req, res){
         const id = req.params.id
-        Propiedad.findById(id, (err,id) => {
+        Propiedad.findById(id, (err,propiedad) => {
            if(err){
                res.status(500).send(`Error al obtener propiedad: ${err}`)
                return
            }
-           res.status(200).send({propiedad: id})
+           res.status(200).send({propiedad: propiedad})
 
            })
     

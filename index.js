@@ -11,7 +11,7 @@ var db = mongoose.connection
 var routes = require('./Routes');
 
 app.set('port', process.env.PORT || 4000); //  defino una variable port. Nuestra aplicacion va a definir un puerto, tomará el puerto del sistema operativo con "process.env.PORT" y en caso de no existir pondrá el puerto 4000
-app.use('/propiedades-controller',routes);
+app.use('/propiedadesApi',routes);
 db.on('error',console.error.bind(console,'connection error:'))
 db.on('open', function(){
     console.log('BD CONNECTED')
