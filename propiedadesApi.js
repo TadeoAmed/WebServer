@@ -1,14 +1,29 @@
-
-const express = require ('express');
-const bodyParser = require('body-parser');
-const propiedad = require('./models/propiedad');
-const app = express();
-module.exports = function(app){
 const Propiedad = require('./models/propiedad')
 
-    // app.post('/propiedadesApi/propiedades', nuevaPropiedad);
+    nuevaPropiedad = function(req,res){
+        const propiedad = new Propiedad();
+        propiedad.direccion = req.body.direccion
+        propiedad.tipo = req.body.tipo
+        propiedad.piso = req.body.piso
+        propiedad.mts_cuadrados = req.body.mts_cuadrados
+        propiedad.ambientes = req.body.ambientes
+        propiedad.banos = req.body.banos
+        propiedad.barrio = req.body.barrio
+        propiedad.precio = req.body.precio
+        propiedad.garage = req.body.garage
+        
+        propiedad.save(function(err, propRegistered){
+            if(err){
+                res.status(500).send(`Error al crear propiedad: ${err}`)
+                return 
+            }
+            res.status(200).send({propiedad: propRegistered}) })
+    }
 
-    app.get('/propiedadesApi/propiedades', (req, res) =>{
+    exports.add = nuevaPropiedad;
+
+    exports.list = function(req, res){
+    
         Propiedad.find()
         .then(doc =>{
             res.json(doc);
@@ -16,9 +31,10 @@ const Propiedad = require('./models/propiedad')
         .catch(err =>{
             console.log('error al consultar');
         })
-    });
     
-    app.get('/propiedadesApi/propiedades/:id', (req, res) => {
+};
+    
+exports.listOne = function(req, res){
         const id = req.params.id
         Propiedad.findById(id, (err,id) => {
            if(err){
@@ -28,51 +44,43 @@ const Propiedad = require('./models/propiedad')
            res.status(200).send({propiedad: id})
 
            })
-    });
+    
+};
 
-// // get con query string
+exports.update = function(req, res){
+   
+    Propiedad.findById(req.params.id,function(err,propiedad){
+        propiedad.direccion = req.body.direccion;
+        propiedad.tipo = req.body.tipo;
+        propiedad.piso = req.body.piso;
+        propiedad.mts_cuadrados = req.body.mts_cuadrados;
+        propiedad.ambientes = req.body.ambientes;
+        propiedad.banos = req.body.banos;
+        propiedad.barrio = req.body.barrio;
+        propiedad.precio = req.body.precio;
+        propiedad.garage = req.body.garage;
+        
+        
+        propiedad.save(function(err) {
+                      if(err) return res.status(500).send(err.message);
+                  res.status(200).json(propiedad);
+                   });        
+    });        
+};
 
-// app.get('/propiedadesApi/propiedades/', (req,res) => {
-//     const propbusc = req.query
-//      console.log(req.query);
-//     Propiedad.find(propbusc, function(err,doc){
-//         if(err){
-//             res.status(500).send(`Error al actualizar propiedad: ${err}`)
-//             return
-//         }
-//         res.status(200).send({propiedad: propbusc});
-//     });
- 
-//  })
-
-
-    app.put('propiedadesApi/propiedades/:id', (req, res) => {
-         const id = req.params.id
-         let update = req.body
-
-         Propiedad.findByIdAndUpdate({_id:id}, update, { useFindAndModify: false }, (err, propiedadupdt) => {
-            if(err){
-                res.status(500).send(`Error al actualizar propiedad: ${err}`)
-                return
-            }   
-            res.status(200).send({ propiedad: propiedadupdt })
-            
-         })
-
-     });
-
-     app.delete('/propiedadesApi/propiedades/:id', (req, res) => {
+exports.delete = function(req, res){
+     
         const id = req.params.id
         
-        propiedad.findByIdAndDelete(id, (err,propencontrada) => {
+        Propiedad.findByIdAndDelete(id, (err,propencontrada) => {
            if(err){
-               res.status(500).send(`Error al actualizar propiedad: ${err}`)
+               res.status(500).send(`Error al eliminar propiedad: ${err}`)
                return
            }
            res.status(200).send({propiedad: propencontrada})
 
            })
-    });
+    
 }
 
 
